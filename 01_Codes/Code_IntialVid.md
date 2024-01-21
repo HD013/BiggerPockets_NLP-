@@ -205,7 +205,7 @@ plt.show()
 
 <br>
 
-### 4. Sentiment analysis $$$
+### Sentiment analysis $$$
 #### https://www.kaggle.com/code/adepvenugopal/sentiment-analysis-of-youtube-comments
 
 <br>
