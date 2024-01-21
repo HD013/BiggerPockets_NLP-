@@ -1,6 +1,6 @@
 ## This code will inialize and scape data from a single video and cover a few analyses
 
-<br?
+<br>
 
 ```
 # Import libraries
@@ -211,15 +211,76 @@ plt.show()
 <br>
 
 ```
+#Testing NLP - Sentiment Analysis using TextBlob
+testsent= TextBlob("The movie is good").sentiment
 
+testsent
+# To interpret the result:
+# TextBlob’s output for a polarity task is a float within the range [-1.0, 1.0] where -1.0 is a negative polarity and 1.0 is positive. This score can also be equal to 0, which stands for a neutral evaluation of a statement as it doesn’t contain any words from the training set.
+# Whereas, a subjectivity/objectivity identification task reports a float within the range [0.0, 1.0]
 
 ```
 
 <br>
 
 ```
+#Test NLP - Sentiment Analysis using one of the video comments
+comments_top500df['text'][1]
 
+TextBlob(comments_top500df['text'][1]).sentiment
 
 ```
 
 <br>
+
+```
+# Calculate Sentiment polarity for each comment
+
+pol=[] # list which will contain the polarity of the comments
+for i in comments_top500df['text']:
+    try:
+        analysis =TextBlob(i)
+        pol.append(analysis.sentiment.polarity)
+        
+    except:
+        pol.append(0)
+        
+# adding polarity to df
+comments_top500df['polarity']=pol
+comments_top500df.head()
+
+```
+
+<br>
+
+```
+comments_top500df.tail()
+# just check the tail 
+
+```
+
+<br>
+
+```
+# Make plot of polarity 
+plt.hist(comments_top500df['polarity'], bins=100)
+plt.gca().set(title='Comment Polarity Histogram', ylabel='Frequency')
+
+```
+
+<br>
+
+```
+# get a few summary statistics 
+comments_top500df['polarity'].describe()
+
+```
+
+<br>
+
+
+<br>
+
+
+<br>
+
