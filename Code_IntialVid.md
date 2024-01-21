@@ -1,0 +1,186 @@
+## This code will inialize and scape data from a single video and cover a few analyses
+
+<br?
+
+```
+# Import libraries
+import itertools 
+from youtube_comment_downloader import * #you can find out more about this library here Tutorial: https://github.com/egbertbouman/youtube-comment-downloader
+import re
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+
+#NLP packages
+from textblob import TextBlob
+from nltk.corpus import stopwords
+from wordcloud import WordCloud, STOPWORDS
+import spacy
+import nltk
+
+
+```
+
+<br> 
+
+```
+# Test download comments from a Youtube link
+downloader = YoutubeCommentDownloader()
+comments = downloader.get_comments_from_url('https://www.youtube.com/watch?v=IVK5vQg1UvY', sort_by=SORT_BY_POPULAR)
+# This is a video from about a year old.
+
+# empty data frame
+comment_df = pd.DataFrame()
+
+# show first 10 comments by getting the first 10th items from generator object
+comments_top10 = itertools.islice(comments, 10)
+
+# convert generator object to pd.dataframe
+comments_top10df= pd.DataFrame(comments_top10)
+```
+
+<br>
+
+```
+# Func to count # of comments for this video 
+def ilen(it):
+    return len(list(it))
+
+ilen(comments)
+print (comments_top10df)
+
+```
+
+<br>
+
+
+```
+# The first 500 comments
+comments = downloader.get_comments_from_url('https://www.youtube.com/watch?v=IVK5vQg1UvY', sort_by=SORT_BY_POPULAR)
+
+comments_top500 = itertools.islice(comments, 500)
+comments_top500df= pd.DataFrame(comments_top500)
+
+comments_top500df.head()
+
+```
+
+<br>
+
+```
+# Save comments to CSV file 
+comments_top500df.to_csv("02_Results/bp_IVK5vQg1UvY_ytb500.csv")
+
+```
+
+<br>
+
+### CLEAN DATA ###
+
+<br>
+
+```
+import warnings
+warnings.filterwarnings('ignore')
+
+# remove punctuation:
+comments_top500df['text'] = comments_top500df['text'].str.replace('[^\w\s]','')
+comments_top500df['text'].head()
+
+```
+
+<br>
+
+```
+# remove any emojis :(
+# REFERENCE : https://gist.github.com/slowkow/7a7f61f495e3dbb7e3d767f97bd7304b
+
+def remove_emoji(text):
+    emoji_pattern = re.compile("["
+                           u"\U0001F600-\U0001F64F"  # emoticons
+                           u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+                           u"\U0001F680-\U0001F6FF"  # transport & map symbols
+                           u"\U0001F1E0-\U0001F1FF"  # flags 
+                           u"\U00002702-\U000027B0"
+                           u"\U000024C2-\U0001F251"
+                           "]+", flags=re.UNICODE)
+    return emoji_pattern.sub(r'', text)
+
+comments_top500df['text'] = comments_top500df['text'].apply(lambda x: remove_emoji(x))
+comments_top500df['text'].head()
+
+```
+
+<br>
+
+```
+# Remove stopwords - commonly used words (i.e. “the”, “a”, “an”) that do not add meaning to a sentence 
+nltk.download('stopwords')
+
+stop = stopwords.words('english')
+comments_top500df['text'] = comments_top500df['text'].apply(lambda x: " ".join(x for x in x.split() if x not in stop))
+comments_top500df['text'].head()
+
+```
+
+<br>
+
+```
+# Lemmatization using Spacy so that we can count the appearance of each word.
+
+#initialize Spacy ‘en’ model, keeping only the component need for lemmatization and creating an engine:
+# need to download the model in cmd by: spacy download en_core_web_sm 
+
+nlp = spacy.load("en_core_web_sm", disable=['parser', 'ner'])
+
+def space(comment):
+    doc = nlp(comment)
+    return " ".join([token.lemma_ for token in doc])
+
+comments_top500df['text'] = comments_top500df['text'].apply(space)
+comments_top500df['text'].head()
+
+```
+
+<br>
+
+```
+# remove textless rows  
+comments_top500df['text'].replace('', np.nan, inplace=True)
+comments_top500df.dropna(subset=['text'], inplace=True)
+comments_top500df.shape # 125 rows 
+
+```
+
+<br>
+
+```
+# Save updated comments to CSV file 
+comments_top500df.to_csv("02_Results/bp_IVK5vQg1UvY_ytb500.csv")
+
+```
+
+<br>
+
+```
+
+
+```
+
+<br>
+
+```
+
+
+```
+
+<br>
+
+```
+
+
+```
+
+<br>
