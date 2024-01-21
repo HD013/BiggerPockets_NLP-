@@ -164,10 +164,49 @@ comments_top500df.to_csv("02_Results/bp_IVK5vQg1UvY_ytb500.csv")
 
 <br>
 
+### WORDCLOUD VIZ ###
+#### See: https://www.geeksforgeeks.org/generating-word-cloud-python/
+
+<br>
+
+```
+comment_words = ''
+stopwords = set(STOPWORDS)
+
+for val in comments_top500df['text']:
+     
+    # typecaste each val to string
+    val = str(val)
+ 
+    # split the value
+    tokens = val.split()
+     
+    # Converts each token into lowercase
+    for i in range(len(tokens)):
+        tokens[i] = tokens[i].lower()
+     
+    comment_words += " ".join(tokens)+" "
+ 
+wordcloud = WordCloud(width = 800, height = 800,
+                background_color ='white',
+                stopwords = stopwords,
+                min_font_size = 10).generate(comment_words)
+ 
+# plot the WordCloud image   
+beingsaved = plt.figure(figsize = (8, 8), facecolor = None)
+
+plt.imshow(wordcloud)
+plt.axis("off")
+plt.tight_layout(pad = 0)
+ 
+plt.show()
+
 ```
 
+<br>
 
-```
+### 4. Sentiment analysis $$$
+#### https://www.kaggle.com/code/adepvenugopal/sentiment-analysis-of-youtube-comments
 
 <br>
 
