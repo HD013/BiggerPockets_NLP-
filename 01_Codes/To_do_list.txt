@@ -1,0 +1,3 @@
+1. Get number of comments per video --> filter videos with less than 30 comments 
+2. Calculate time series of number of views/ number of comments per video
+3. Deep dive on some hihgly debatable topics (airbnb arbitrage)
