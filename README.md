@@ -10,6 +10,10 @@ This is a collaborative project featuring two data scientists: Dr. David Henders
 
 > 01_Codes: a folder containing jupyter notebooks of python codes showing the intermediate steps and exploratory data analyses
 
-> 02_Results: a folder containing csv tables and figures produced from the file 
+> 02_Results: a folder containing csv tables and figures produced from the file
+You will find a file called "Video_polarity_mean_max_min_plotly.html", where you can interactively see the mean, max, and min comment polarity on every video of Bigger Pocket youtube.
+
+https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/414c6898-cf3b-418b-8b4b-29685bf0ba95
+
 
 > 03_Dashboards: 
