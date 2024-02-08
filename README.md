@@ -22,4 +22,5 @@ This is an interactive figure from ["Video_polarity_mean_max_min_plotly.html"]([
 
 **Highlight 2 **
 ![View count per length](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/8a0954ea-8f9f-404d-ac15-8442297a9c05)
+
 We found that a video length of 260 seconds (4 min 20 secs) has the most view count per second -- This seems to be a "sweet spot" of attracting view counts with the minimum efforts spent on making video productions, without compromising the view counts and contents :)
