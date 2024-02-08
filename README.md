@@ -16,13 +16,13 @@ This is a collaborative project featuring two data scientists: Dr. David Henders
 
 **Result highlights:**
 
-**Highlight 1 **
+**Highlight 1**
 
 ![Plotly_polarity_1300videos](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/736c3e0e-8f4f-4b2f-8338-878f5e366082)
 
 This is an interactive figure from ["Video_polarity_mean_max_min_plotly.html"]([url](https://github.com/HD013/BiggerPockets_NLP-/blob/main/02_Results/Video_polarity_mean_max_min_plotly.html)), where you can hover over the html file and see the mean, max, and min comment polarity on every video of Bigger Pocket youtube.
 
-**Highlight 2 **
+**Highlight 2**
 
 ![60abbbc9-087a-4027-9d62-fc0fb4b1097a](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/e7ba7ef3-7ae4-4806-9f5d-ccbc3bd25fa4)
 
