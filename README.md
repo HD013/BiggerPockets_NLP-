@@ -3,6 +3,15 @@ Welcome to this repository and dashboard about using NLP (natural language proce
 
 ![image](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/459ae657-fad8-4198-9b95-4b5376795639)
 
+Contents
+========
+
+
+* [Authors](##**Authors:**)
+* [File directory](##**File directory:**)
+* [Result highlights](**Result highlights:**)
+
+
 ## **Authors:**
 This is a collaborative project featuring two data scientists: Dr. David Henderson (see profile here - https://github.com/HD013) & Dr. Yingtong "Amanda" Wu (see profile here - https://github.com/YingtongAamandaWu)
 
