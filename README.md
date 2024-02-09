@@ -32,7 +32,7 @@ We found that a video length of 260 seconds (4 min 20 secs) has the most view co
 ![SingleVideoWordCloud_videoID_IVK5vQg1Uv](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/e019b801-8fb3-455e-8e28-42f217356664)
 
 As a case study, we produced a wordcloud image based on 124 Youtube comments from this recent video "New Rental Property Mortgages with 3% Interest Rates, 5% Down" (Link https://www.youtube.com/watch?v=IVK5vQg1UvY). Most of the comments are positive, as you can in the figure below: all comments are mainly positive, as indicated by the histogram below. From the wordcloud image above, "Thank" and "Great" are two main keywords that popped up consistently in the comments -- meaning that the audience is very thankful for the information shared about low-interest rate mortgages in 2023!
-![image](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/27e43b04-8874-4457-8a59-38400811e06e)
+![image](https://github.com/HD013/BiggerPockets_NLP-/assets/80353259/27e43b04-8874-4457-8a59-38400811e06e| width=100)
 
 
 
